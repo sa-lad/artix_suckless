@@ -30,8 +30,7 @@ fi
 
 # Directory for building.
 directory=~/.local/src
-mkdir ~/.local
-mkdir $directory
+mkdir -P $directory
 
 # Remove/ copy files and then build.
 sudo rm ~/.bashrc
