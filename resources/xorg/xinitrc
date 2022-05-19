@@ -1,0 +1,5 @@
+xrdb ~/.Xresources
+#~/.fehbg # Uncomment when using feh backgrounds.
+#setxkbmap gb # Uncomment to set keymap to gb layout.
+exec slstatus &
+exec dwm
