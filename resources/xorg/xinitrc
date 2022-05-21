@@ -1,5 +1,13 @@
+# X/ FEH
 xrdb ~/.Xresources
 #~/.fehbg # Uncomment when using feh backgrounds.
-#setxkbmap gb # Uncomment to set keymap to gb layout.
+setxkbmap gb # Uncomment to set keymap to gb layout.
+
+# PIPEWIRE
+/usr/bin/pipewire &
+/usr/bin/pipewire-pulse &
+/usr/bin/pipewire-media-session &
+
+# DWM
 exec slstatus &
 exec dwm

@@ -12,25 +12,24 @@ libx11
 libxinerama
 libxft
 webkit2gtk
-feh
-terminus-font
-tff-hanazono
 "
 sudo pacman -Syu $packages
 
-plsaudio="
-pulseaudio
+audio="
+pipewire
+pipewire-pulse
+pipewire-media-session
 pavucontrol
 "
-echo && read -p "> install pulseaudio? [Y/n] " inst_pls
+echo; read -p ":: install pipewire audio? [Y/n] " inst_pipe
 
-if [[ $inst_pls == "Y" || $inst_pls == "y" ]]; then
-    sudo pacman -Syu $plsaudio
+if [[ $inst_pipe == "Y" || $inst_pipe == "y" || $inst_pipe == "" ]]; then
+    sudo pacman -Syu $audio
 fi
 
 # Directory for building.
 directory=~/.local/src
-mkdir -P $directory
+mkdir -p $directory
 
 # Remove/ copy files and then build.
 sudo rm ~/.bashrc
@@ -39,11 +38,9 @@ sudo rm ~/.xinitrc
 sudo rm ~/.Xresources
 
 curdir=$(pwd)
-cp -r $curdir/src/dwm $directory
-cp -r $curdir/src/dmenu $directory
-cp -r $curdir/src/st $directory
-cp -r $curdir/src/slstatus $directory
-cp -r $curdir/src/scroll $directory
+sudo cp -r $curdir/src/* $directory
+sudo cp -r $curdir/resources/font/* /usr/share/fonts/
+cp -r $curdir/resources/gtk-3.0 ~/.config
 cp $curdir/resources/bash/bashrc ~/.bashrc
 cp $curdir/resources/bash/bash_profile ~/.bash_profile
 cp $curdir/resources/xorg/xinitrc ~/.xinitrc
@@ -54,10 +51,10 @@ cd $directory/dmenu && sudo make clean install
 cd $directory/st && sudo make clean install
 cd $directory/slstatus && sudo make clean install
 
-echo && read -p "> enable st scrollback? [Y/n] " stscroll
+echo; read -p ":: enable st scrollback? [Y/n] " stscroll
 
-if [[ $stscroll == "Y" || $stscroll == "y" ]]; then
-    cd $directory/scroll && sudo make clean install
+if [[ $stscroll == "Y" || $stscroll == "y" || $stscroll == "" ]]; then
+     cd $directory/scroll && sudo make clean install
 fi
 
-echo -e "\n> finished."
+echo -e "\n:: finished!"
