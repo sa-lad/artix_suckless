@@ -3,7 +3,7 @@
 Clone:
 
 ```
-$ git clone https://github.com/sa-lad/void_suckless
+$ git clone https://github.com/sa-lad/artix_suckless
 ```
 
 Run the setup:
