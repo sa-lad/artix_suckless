@@ -6,4 +6,6 @@
 [[ $- != *i* ]] && return
 
 alias ls='ls --color=auto'
-PS1='\e[2;32m[\e[0m\e[0;31m\u\e[0m\e[2;36m@\e[0m\e[0;35m\h\e[0m\e[2;36m:\e[0m \e[0;34m\W\e[0m\e[2;32m]\e[0m\n>>> '
+
+# https://bashrcgenerator.com/
+PS1="\[\033[38;5;28m\][\[$(tput sgr0)\]\[\033[38;5;1m\]\u\[$(tput sgr0)\]\[\033[38;5;30m\]@\[$(tput sgr0)\]\[\033[38;5;5m\]\h\[$(tput sgr0)\]\[\033[38;5;28m\]:\[$(tput sgr0)\] \[$(tput sgr0)\]\[\033[38;5;12m\]\w\[$(tput sgr0)\]\[\033[38;5;28m\]]\[$(tput sgr0)\]\n>>> \[$(tput sgr0)\]"
