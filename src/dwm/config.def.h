@@ -11,11 +11,11 @@ static const char col_gray1[]       = "#171717"; /* default: #222222 */
 static const char col_gray2[]       = "#444444"; /* default: #444444 */
 static const char col_gray3[]       = "#0066ff"; /* default: #bbbbbb */
 static const char col_gray4[]       = "#eeeeee"; /* default: #eeeeee */
-static const char col_cyan[]        = "#9c002a"; /* default: #005577 */ //821818
+static const char col_cyan[]        = "#9c002a"; /* default: #005577 */
 static const char *colors[][3]      = {
-	/*               fg         bg         border   */
-	[SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
-	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
+        /*               fg         bg         border   */
+        [SchemeNorm] = { col_gray3, col_gray1, col_gray2 },
+        [SchemeSel]  = { col_gray4, col_cyan,  col_cyan  },
 };
 
 /* tagging */
@@ -34,7 +34,7 @@ static const Rule rules[] = {
 /* layout(s) */
 static const float mfact     = 0.55; /* factor of master area size [0.05..0.95] */
 static const int nmaster     = 1;    /* number of clients in master area */
-static const int resizehints = 0;    /* 1 means respect size hints in tiled resizals */
+static const int resizehints = 1;    /* 1 means respect size hints in tiled resizals */
 static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen window */
 
 static const Layout layouts[] = {
@@ -53,7 +53,7 @@ static const Layout layouts[] = {
 	{ MODKEY|ControlMask|ShiftMask, KEY,      toggletag,      {.ui = 1 << TAG} },
 
 /* helper for spawning shell commands in the pre dwm-5.0 fashion */
-#define SHCMD(cmd) { .v = (const char*[]){ "/usr/local/bin/st", "-c", cmd, NULL } }
+#define SHCMD(cmd) { .v = (const char*[]){ "/bin/sh", "-c", cmd, NULL } }
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
@@ -90,10 +90,10 @@ static Key keys[] = {
 	TAGKEYS(                        XK_3,                      2)
 	TAGKEYS(                        XK_4,                      3)
 	TAGKEYS(                        XK_5,                      4)
-//	TAGKEYS(                        XK_6,                      5)
-//	TAGKEYS(                        XK_7,                      6)
-//	TAGKEYS(                        XK_8,                      7)
-//	TAGKEYS(                        XK_9,                      8)
+	//TAGKEYS(                        XK_6,                      5)
+	//TAGKEYS(                        XK_7,                      6)
+	//TAGKEYS(                        XK_8,                      7)
+	//TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
 };
 
